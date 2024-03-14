@@ -1,12 +1,12 @@
+# Improving GCC's Interprocedural Optimization Infrastructure
+- GNU Project
+
 <!DOCTYPE html>
 <html lang="en"><head>
  
  
  <link rel="shortcut icon" href="https://gcc.gnu.org/favicon.ico">
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>
-Improving GCC's Interprocedural Optimization Infrastructure
-- GNU Project</title>
 <link rel="stylesheet" type="text/css" href="README_files/gcc.css">
    </head>
  
