@@ -1,0 +1,222 @@
+\documentclass[fleqn]{article}
+
+%% Created with wxMaxima 24.02.0
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{iftex}
+\ifPDFTeX
+  % PDFLaTeX or LaTeX 
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \DeclareUnicodeCharacter{00B5}{\ensuremath{\mu}}
+\else
+  %  XeLaTeX or LuaLaTeX
+  \usepackage{fontspec}
+\fi
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[leqno]{amsmath}
+\usepackage{ifthen}
+\newsavebox{\picturebox}
+\newlength{\pictureboxwidth}
+\newlength{\pictureboxheight}
+\newcommand{\includeimage}[1]{
+    \savebox{\picturebox}{\includegraphics{#1}}
+    \settoheight{\pictureboxheight}{\usebox{\picturebox}}
+    \settowidth{\pictureboxwidth}{\usebox{\picturebox}}
+    \ifthenelse{\lengthtest{\pictureboxwidth > .95\linewidth}}
+    {
+        \includegraphics[width=.95\linewidth,height=.80\textheight,keepaspectratio]{#1}
+    }
+    {
+        \ifthenelse{\lengthtest{\pictureboxheight>.80\textheight}}
+        {
+            \includegraphics[width=.95\linewidth,height=.80\textheight,keepaspectratio]{#1}
+            
+        }
+        {
+            \includegraphics{#1}
+        }
+    }
+}
+\newlength{\thislabelwidth}
+\DeclareMathOperator{\abs}{abs}
+
+\definecolor{labelcolor}{RGB}{100,0,0}
+
+\begin{document}
+
+\pagebreak{}
+{\Huge {\scshape 1.3 Gaussian Elimination — Regular Case}}
+\setcounter{section}{0}
+\setcounter{subsection}{0}
+\setcounter{figure}{0}
+
+Com as operações aritméticas matriciais básicas em mãos, vamos agora retornar ao nosso principaltarefa. O objetivo é desenvolver um método sistemático para resolver sistemas lineares de equações.Embora pudéssemos continuar a trabalhar diretamente com as equações, as matrizes fornecem uma forma conveniente dealternativa que começa simplesmente encurtando a quantidade de escrita, mas que acaba levandopara uma visão profunda da estrutura de sistemas lineares e suas soluções.Começamos substituindo o sistema (1.7) pelos seus constituintes matriciais. É convenienteignore o vetor de incógnitas e forme a matriz aumentada
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i5)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+m:\ diag(a+b)\ +\ matrix([a11,a12,a1n+b1],[a21,a22,a2n+b2],[a31,a32,a3n+b3]);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{m} 
+\begin{pmatrix}\mathop{diag}\left( b\mathop{+}a\right) \mathop{+}\ensuremath{\mathrm{a11}} & \mathop{diag}\left( b\mathop{+}a\right) \mathop{+}\ensuremath{\mathrm{a12}} & \ensuremath{\mathrm{b1}}\mathop{+}\mathop{diag}\left( b\mathop{+}a\right) \mathop{+}\ensuremath{\mathrm{a1n}}\\
+\mathop{diag}\left( b\mathop{+}a\right) \mathop{+}\ensuremath{\mathrm{a21}} & \mathop{diag}\left( b\mathop{+}a\right) \mathop{+}\ensuremath{\mathrm{a22}} & \ensuremath{\mathrm{b2}}\mathop{+}\mathop{diag}\left( b\mathop{+}a\right) \mathop{+}\ensuremath{\mathrm{a2n}}\\
+\mathop{diag}\left( b\mathop{+}a\right) \mathop{+}\ensuremath{\mathrm{a31}} & \mathop{diag}\left( b\mathop{+}a\right) \mathop{+}\ensuremath{\mathrm{a32}} & \ensuremath{\mathrm{b3}}\mathop{+}\mathop{diag}\left( b\mathop{+}a\right) \mathop{+}\ensuremath{\mathrm{a3n}}\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+que é uma matriz m × (n + 1) obtida colando o vetor do lado direito nomatriz de coeficiente original. A linha vertical extra é incluída apenas para nos lembrar que oa última coluna desta matriz desempenha um papel especial. Por exemplo, a matriz aumentada para osistema (1.1), ou seja,
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i6)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+x:\ x\ +\ y2\ +\ z\ =\ 2;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{mtx} 
+z\mathop{+}\ensuremath{\mathrm{y2}}\mathop{+}x\mathop{=}2\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i7)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+mtx:\ matrix([x,y2,z])=2;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{mtx} 
+\begin{pmatrix}x & \ensuremath{\mathrm{y2}} & z\end{pmatrix}\mathop{=}2\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i11)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+mtx1:\ matrix([0,\ 1,\ 1])=2;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{mtx1} 
+\begin{pmatrix}0 & 1 & 1\end{pmatrix}\mathop{=}2\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i12)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+y:\ x2\ +\ y6\ +\ z\ =\ 7;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{y} 
+z\mathop{+}\ensuremath{\mathrm{y6}}\mathop{+}\ensuremath{\mathrm{x2}}\mathop{=}7\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i13)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+mtx2:\ matrix([z,y6,x2])=7;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{mtx2} 
+\begin{pmatrix}z & \ensuremath{\mathrm{y6}} & \ensuremath{\mathrm{x2}}\end{pmatrix}\mathop{=}7\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i15)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+mtx3:\ matrix([1,8,-2])=7;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{mtx3} 
+\begin{pmatrix}1 & 8 & \mathop{-}2\end{pmatrix}\mathop{=}7\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i16)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+z:\ x\ +\ y\ +\ z4\ =\ 3;\ 
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{z} 
+\ensuremath{\mathrm{z4}}\mathop{+}z\mathop{+}\ensuremath{\mathrm{y6}}\mathop{+}\ensuremath{\mathrm{x2}}\mathop{+}x\mathop{=}\ensuremath{\mathrm{z4}}\mathop{+}x\mathop{+}7\mathop{=}3\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i17)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+mtx4:\ diag([z4+x+7])+matrix([z4,z+y6+x2+x])=3;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{mtx4} 
+\mathop{diag}\left( \left[ \ensuremath{\mathrm{z4}}\mathop{+}x\mathop{+}7\right] \right) \mathop{+}\begin{pmatrix}\ensuremath{\mathrm{z4}} & \ensuremath{\mathrm{z4}}\mathop{+}z\mathop{+}2 \ensuremath{\mathrm{y6}}\mathop{+}2 \ensuremath{\mathrm{x2}}\mathop{+}2 x\mathop{=}\ensuremath{\mathrm{z4}}\mathop{+}\ensuremath{\mathrm{y6}}\mathop{+}\ensuremath{\mathrm{x2}}\mathop{+}2 x\mathop{+}7\mathop{=}\ensuremath{\mathrm{y6}}\mathop{+}\ensuremath{\mathrm{x2}}\mathop{+}x\mathop{+}3\end{pmatrix}\mathop{=}3\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i19)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+mtx5:\ diag(4,1,7)+matrix([4,4,4,2,6,2,2,2,1],[4,6,2,2,1,7,2,2,1],[6,2,1,3,2,2,2,2,1])=3;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{mtx5} 
+\begin{pmatrix}\mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}4 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}4 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}4 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}2 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}6 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}2 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}2 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}2 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}1\\
+\mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}4 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}6 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}2 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}2 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}1 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}7 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}2 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}2 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}1\\
+\mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}6 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}2 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}1 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}3 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}2 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}2 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}2 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}2 & \mathop{diag}\left( 4\mathop{,}1\mathop{,}7\right) \mathop{+}1\end{pmatrix}\mathop{=}3\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+\end{document}

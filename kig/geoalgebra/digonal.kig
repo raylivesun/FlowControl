@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE KigDocument>
+<KigDocument grid="1" axes="1" Version="23.08.5" CompatibilityVersion="0.7.0">
+ <CoordinateSystem>Euclidean</CoordinateSystem>
+ <Hierarchy>
+  <Data id="1" type="double">-0.844587</Data>
+  <Data id="2" type="double">-0.0222507</Data>
+  <Data id="3" type="double">1.20843</Data>
+  <Data id="4" type="double">0</Data>
+  <Object id="5" type="FixedPoint">
+   <Parent id="4"/>
+   <Parent id="3"/>
+  </Object>
+  <Data id="6" type="double">-0.118775</Data>
+  <Data id="7" type="double">1.13416</Data>
+  <Object id="8" type="FixedPoint">
+   <Parent id="7"/>
+   <Parent id="6"/>
+  </Object>
+  <Object id="9" type="LineAB">
+   <Parent id="8"/>
+   <Parent id="5"/>
+  </Object>
+  <Object id="10" type="FixedPoint">
+   <Parent id="1"/>
+   <Parent id="2"/>
+  </Object>
+  <Object id="11" type="LineAB">
+   <Parent id="10"/>
+   <Parent id="5"/>
+  </Object>
+  <Data id="12" type="double">3.08877</Data>
+  <Data id="13" type="double">-0.215299</Data>
+  <Object id="14" type="FixedPoint">
+   <Parent id="12"/>
+   <Parent id="13"/>
+  </Object>
+  <Object id="15" type="LineAB">
+   <Parent id="14"/>
+   <Parent id="5"/>
+  </Object>
+ </Hierarchy>
+ <View>
+  <Draw object="15" namecalcer="none" point-style="Round" shown="true" style="SolidLine" color="#0000ff" width="-1" font="Fira Sans,10,-1,5,25,0,0,0,0,0"/>
+  <Draw object="9" namecalcer="none" point-style="Round" shown="true" style="SolidLine" color="#0000ff" width="-1" font="Fira Sans,10,-1,5,25,0,0,0,0,0"/>
+  <Draw object="8" namecalcer="none" point-style="Round" shown="true" style="SolidLine" color="#0000ff" width="-1" font="Fira Sans,10,-1,5,25,0,0,0,0,0"/>
+  <Draw object="5" namecalcer="none" point-style="Round" shown="true" style="SolidLine" color="#0000ff" width="-1" font="Fira Sans,10,-1,5,25,0,0,0,0,0"/>
+  <Draw object="11" namecalcer="none" point-style="Round" shown="true" style="SolidLine" color="#0000ff" width="-1" font="Fira Sans,10,-1,5,25,0,0,0,0,0"/>
+  <Draw object="10" namecalcer="none" point-style="Round" shown="true" style="SolidLine" color="#0000ff" width="-1" font="Fira Sans,10,-1,5,25,0,0,0,0,0"/>
+  <Draw object="14" namecalcer="none" point-style="Round" shown="true" style="SolidLine" color="#0000ff" width="-1" font="Fira Sans,10,-1,5,25,0,0,0,0,0"/>
+ </View>
+</KigDocument>

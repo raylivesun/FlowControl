@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE KigDocument>
+<KigDocument CompatibilityVersion="0.7.0" Version="23.08.5" grid="1" axes="1">
+ <CoordinateSystem>Euclidean</CoordinateSystem>
+ <Hierarchy>
+  <Data id="1" type="double">0.0241311</Data>
+  <Data id="2" type="double">2.91986</Data>
+  <Data id="3" type="double">0.0241311</Data>
+  <Data id="4" type="double">0.0241311</Data>
+  <Data id="5" type="double">3.04239</Data>
+  <Object id="6" type="FixedPoint">
+   <Parent id="4"/>
+   <Parent id="5"/>
+  </Object>
+  <Data id="7" type="double">0.0482621</Data>
+  <Data id="8" type="double">4.08003</Data>
+  <Object id="9" type="FixedPoint">
+   <Parent id="1"/>
+   <Parent id="8"/>
+  </Object>
+  <Data id="10" type="double">2.05114</Data>
+  <Data id="11" type="double">0.0260114</Data>
+  <Data id="12" type="double">2.17368</Data>
+  <Data id="13" type="double">-0.0222507</Data>
+  <Data id="14" type="double">1.06177</Data>
+  <Object id="15" type="FixedPoint">
+   <Parent id="7"/>
+   <Parent id="12"/>
+  </Object>
+  <Data id="16" type="double">1.13604</Data>
+  <Object id="17" type="FixedPoint">
+   <Parent id="3"/>
+   <Parent id="16"/>
+  </Object>
+  <Object id="18" type="FixedPoint">
+   <Parent id="10"/>
+   <Parent id="13"/>
+  </Object>
+  <Object id="19" type="SegmentAB">
+   <Parent id="18"/>
+   <Parent id="15"/>
+  </Object>
+  <Object id="20" type="FixedPoint">
+   <Parent id="2"/>
+   <Parent id="11"/>
+  </Object>
+  <Object id="21" type="SegmentAB">
+   <Parent id="20"/>
+   <Parent id="6"/>
+  </Object>
+  <Data id="22" type="double">0.00188034</Data>
+  <Object id="23" type="FixedPoint">
+   <Parent id="14"/>
+   <Parent id="22"/>
+  </Object>
+  <Object id="24" type="SegmentAB">
+   <Parent id="23"/>
+   <Parent id="9"/>
+  </Object>
+  <Object id="25" type="SegmentAB">
+   <Parent id="23"/>
+   <Parent id="17"/>
+  </Object>
+ </Hierarchy>
+ <View>
+  <Draw namecalcer="none" shown="true" width="-1" point-style="Round" font="Fira Sans,10,-1,5,25,0,0,0,0,0" color="#0000ff" style="SolidLine" object="24"/>
+  <Draw namecalcer="none" shown="true" width="-1" point-style="Round" font="Fira Sans,10,-1,5,25,0,0,0,0,0" color="#0000ff" style="SolidLine" object="9"/>
+  <Draw namecalcer="none" shown="true" width="-1" point-style="Round" font="Fira Sans,10,-1,5,25,0,0,0,0,0" color="#0000ff" style="SolidLine" object="25"/>
+  <Draw namecalcer="none" shown="true" width="-1" point-style="Round" font="Fira Sans,10,-1,5,25,0,0,0,0,0" color="#0000ff" style="SolidLine" object="23"/>
+  <Draw namecalcer="none" shown="true" width="-1" point-style="Round" font="Fira Sans,10,-1,5,25,0,0,0,0,0" color="#0000ff" style="SolidLine" object="19"/>
+  <Draw namecalcer="none" shown="true" width="-1" point-style="Round" font="Fira Sans,10,-1,5,25,0,0,0,0,0" color="#0000ff" style="SolidLine" object="18"/>
+  <Draw namecalcer="none" shown="true" width="-1" point-style="Round" font="Fira Sans,10,-1,5,25,0,0,0,0,0" color="#0000ff" style="SolidLine" object="17"/>
+  <Draw namecalcer="none" shown="true" width="-1" point-style="Round" font="Fira Sans,10,-1,5,25,0,0,0,0,0" color="#0000ff" style="SolidLine" object="20"/>
+  <Draw namecalcer="none" shown="true" width="-1" point-style="Round" font="Fira Sans,10,-1,5,25,0,0,0,0,0" color="#0000ff" style="SolidLine" object="15"/>
+  <Draw namecalcer="none" shown="true" width="-1" point-style="Round" font="Fira Sans,10,-1,5,25,0,0,0,0,0" color="#0000ff" style="SolidLine" object="21"/>
+  <Draw namecalcer="none" shown="true" width="-1" point-style="Round" font="Fira Sans,10,-1,5,25,0,0,0,0,0" color="#0000ff" style="SolidLine" object="6"/>
+ </View>
+</KigDocument>

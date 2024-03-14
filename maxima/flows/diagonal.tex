@@ -1,0 +1,289 @@
+\documentclass[fleqn]{article}
+
+%% Created with wxMaxima 24.02.0
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{iftex}
+\ifPDFTeX
+  % PDFLaTeX or LaTeX 
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \DeclareUnicodeCharacter{00B5}{\ensuremath{\mu}}
+\else
+  %  XeLaTeX or LuaLaTeX
+  \usepackage{fontspec}
+\fi
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[leqno]{amsmath}
+\usepackage{ifthen}
+\newsavebox{\picturebox}
+\newlength{\pictureboxwidth}
+\newlength{\pictureboxheight}
+\newcommand{\includeimage}[1]{
+    \savebox{\picturebox}{\includegraphics{#1}}
+    \settoheight{\pictureboxheight}{\usebox{\picturebox}}
+    \settowidth{\pictureboxwidth}{\usebox{\picturebox}}
+    \ifthenelse{\lengthtest{\pictureboxwidth > .95\linewidth}}
+    {
+        \includegraphics[width=.95\linewidth,height=.80\textheight,keepaspectratio]{#1}
+    }
+    {
+        \ifthenelse{\lengthtest{\pictureboxheight>.80\textheight}}
+        {
+            \includegraphics[width=.95\linewidth,height=.80\textheight,keepaspectratio]{#1}
+            
+        }
+        {
+            \includegraphics{#1}
+        }
+    }
+}
+\newlength{\thislabelwidth}
+\DeclareMathOperator{\abs}{abs}
+
+\definecolor{labelcolor}{RGB}{100,0,0}
+
+\begin{document}
+1.2.7. Considere as matrizes
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i1)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+A:\ matrix([1,-1,3],[-1,4,-2],[3,0,6]);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{A} 
+\begin{pmatrix}1 & \mathop{-}1 & 3\\
+\mathop{-}1 & 4 & \mathop{-}2\\
+3 & 0 & 6\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i2)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+B:\ matrix([-6,0,3],[4,2,-1]);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{B} 
+\begin{pmatrix}\mathop{-}6 & 0 & 3\\
+4 & 2 & \mathop{-}1\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i6)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+C:\ matrix([2,3],[-3,-4],[1,2]);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{C} 
+\begin{pmatrix}2 & 3\\
+\mathop{-}3 & \mathop{-}4\\
+1 & 2\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+Calcule as combinações indicadas sempre que possível. (a) 3 A - B, (b) AB, (c) BA,(d) (A+B) C, (e) A+B C, (f ) A+2 C B, (g) B C B- I , (h) A2 -3 A+ I , (i) (B- I ) ( C+I).
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i8)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+AI:\ \ A\ -\ 2;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{AI} 
+\begin{pmatrix}\mathop{-}1 & \mathop{-}3 & 1\\
+\mathop{-}3 & 2 & \mathop{-}4\\
+1 & \mathop{-}2 & 4\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i9)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+AB:\ A\ +\ 2;\\
+
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{AB} 
+\begin{pmatrix}3 & 1 & 5\\
+1 & 6 & 0\\
+5 & 2 & 8\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i10)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+BA:\ A\ *\ 1;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{BA} 
+\begin{pmatrix}1 & \mathop{-}1 & 3\\
+\mathop{-}1 & 4 & \mathop{-}2\\
+3 & 0 & 6\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i11)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+DB:\ A\ /\ 2;\ 
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{DB} 
+\begin{pmatrix}\frac{1}{2} & \mathop{-}\left( \frac{1}{2}\right)  & \frac{3}{2}\\
+\mathop{-}\left( \frac{1}{2}\right)  & 2 & \mathop{-}1\\
+\frac{3}{2} & 0 & 3\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i12)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+CB:\ A\ +\ 2\ *\ 3;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{CB} 
+\begin{pmatrix}7 & 5 & 9\\
+5 & 10 & 4\\
+9 & 6 & 12\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i13)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+FB:\ A\ +\ 2\ *\ 3\ /\ 2;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{FB} 
+\begin{pmatrix}4 & 2 & 6\\
+2 & 7 & 1\\
+6 & 3 & 9\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i14)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+GB:\ B\ +\ 3\ *\ 2\ -9;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{GB} 
+\begin{pmatrix}\mathop{-}9 & \mathop{-}3 & 0\\
+1 & \mathop{-}1 & \mathop{-}4\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i16)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+HB:\ A\ +\ 2\ -\ 3\ *\ 1\ +9;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{HB} 
+\begin{pmatrix}9 & 7 & 11\\
+7 & 12 & 6\\
+11 & 8 & 14\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i21)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+IB:B-9\ /\ 3+9;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{IB} 
+\begin{pmatrix}0 & 6 & 9\\
+10 & 8 & 5\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+matrizes que comutam (na multiplicação de matrizes) com D são outras 2 × 2 ⎛diagonal ⎞um 0 0⎟matrizes. (b) E se a = b? (c) Encontre todas as matrizes que comutam com D = ⎜⎝ 0 b 0 ⎠,0 0conde a, b, c são todos diferentes. (d) Responda a mesma pergunta para o caso em que a = b = c.(e) Prove que uma matriz A comuta com uma matriz diagonal n × n D com todos osentradas diagonais se e somente se A for uma matriz diagonal.
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i22)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+D:\ \ diag([A,0,0],[0,B,0],[0,0,C])+matrix([1,0,0],[0,2,0],[0,0,3]);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{D} 
+\mathop{diag}\left( \left[ \begin{pmatrix}1 & \mathop{-}1 & 3\\
+\mathop{-}1 & 4 & \mathop{-}2\\
+3 & 0 & 6\end{pmatrix}\mathop{,}0\mathop{,}0\right] \mathop{,}\left[ 0\mathop{,}\begin{pmatrix}\mathop{-}6 & 0 & 3\\
+4 & 2 & \mathop{-}1\end{pmatrix}\mathop{,}0\right] \mathop{,}\left[ 0\mathop{,}0\mathop{,}\begin{pmatrix}2 & 3\\
+\mathop{-}3 & \mathop{-}4\\
+1 & 2\end{pmatrix}\right] \right) \mathop{+}\begin{pmatrix}1 & 0 & 0\\
+0 & 2 & 0\\
+0 & 0 & 3\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+\end{document}

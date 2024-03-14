@@ -1,0 +1,234 @@
+\documentclass[fleqn]{article}
+
+%% Created with wxMaxima 24.02.0
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{iftex}
+\ifPDFTeX
+  % PDFLaTeX or LaTeX 
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \DeclareUnicodeCharacter{00B5}{\ensuremath{\mu}}
+\else
+  %  XeLaTeX or LuaLaTeX
+  \usepackage{fontspec}
+\fi
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[leqno]{amsmath}
+\usepackage{ifthen}
+\newsavebox{\picturebox}
+\newlength{\pictureboxwidth}
+\newlength{\pictureboxheight}
+\newcommand{\includeimage}[1]{
+    \savebox{\picturebox}{\includegraphics{#1}}
+    \settoheight{\pictureboxheight}{\usebox{\picturebox}}
+    \settowidth{\pictureboxwidth}{\usebox{\picturebox}}
+    \ifthenelse{\lengthtest{\pictureboxwidth > .95\linewidth}}
+    {
+        \includegraphics[width=.95\linewidth,height=.80\textheight,keepaspectratio]{#1}
+    }
+    {
+        \ifthenelse{\lengthtest{\pictureboxheight>.80\textheight}}
+        {
+            \includegraphics[width=.95\linewidth,height=.80\textheight,keepaspectratio]{#1}
+            
+        }
+        {
+            \includegraphics{#1}
+        }
+    }
+}
+\newlength{\thislabelwidth}
+\DeclareMathOperator{\abs}{abs}
+
+\definecolor{labelcolor}{RGB}{100,0,0}
+
+\begin{document}
+1.2.13. Mostre que os produtos das matrizes A B e B A têm o mesmo tamanho se e somente se A e Bsão matrizes quadradas do mesmo tamanho.
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i1)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+AB:\ \ matrix([1,2],[0,1]);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{AB} 
+\begin{pmatrix}1 & 2\\
+0 & 1\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+1.2.15. (a) Mostre que, se A, B são matrizes quadradas comutantes, então (A + B) = A + 2 A B + B 2 .(b) Encontre um par de matrizes 2 × 2 A, B tais que (A + B)2 = A2 + 2 A B + B 2 .
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i2)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+mtx:\ AB\ +\ 1\ +\ 2\ *\ AB\ +\ 2;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{mtx} 
+\begin{pmatrix}6 & 9\\
+3 & 6\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i3)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+mtx1:\ AB\ *\ AB\ *\ 2\ \^\ \ 2\ +\ AB\ +\ 22;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{mtx1} 
+\begin{pmatrix}27 & 40\\
+22 & 27\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+1.2.16. Mostre que se as matrizes A e B comutam, então elas são necessariamente quadradas eo mesmo tamanho.
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i4)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+mtx2:\ AB\ +\ AB;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{mtx2} 
+\begin{pmatrix}2 & 4\\
+0 & 2\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+1.2.17. Seja A uma matriz m × n. Quais são os tamanhos permitidos para as matrizes zeroaparecendo nas identidades A O = O e O A = O?
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i5)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+AO:\ O(0,1,2,3)+O(0,1,2,3)*AB;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{AO} 
+\begin{pmatrix}2 \mathop{O}\left( 0\mathop{,}1\mathop{,}2\mathop{,}3\right)  & 3 \mathop{O}\left( 0\mathop{,}1\mathop{,}2\mathop{,}3\right) \\
+\mathop{O}\left( 0\mathop{,}1\mathop{,}2\mathop{,}3\right)  & 2 \mathop{O}\left( 0\mathop{,}1\mathop{,}2\mathop{,}3\right) \end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+ --\ensuremath{\ensuremath{>}}	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+
+\end{minipage}
+
+\noindent%
+
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i6)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+ratsimp(AB+AB/mtx);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o6} 
+\begin{pmatrix}\frac{7}{6} & \frac{20}{9}\\
+0 & \frac{7}{6}\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+ --\ensuremath{\ensuremath{>}}	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+
+\end{minipage}
+
+\noindent%
+
+1.2.18. Seja A uma matriz m × n e seja c um escalar. Mostre que se c A = O, então c = 0ou A = O.
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i10)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+cos(AB+AB/mtx);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o10} 
+\begin{pmatrix}\cos{\left( \frac{7}{6}\right) } & \cos{\left( \frac{20}{9}\right) }\\
+1 & \cos{\left( \frac{7}{6}\right) }\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+1.2.19. Verdadeiro ou falso: Se A B = O então A = O ou B = O.
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i9)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+VF:\ AB+AB=mtx;\ 
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{VF} 
+\begin{pmatrix}2 & 4\\
+0 & 2\end{pmatrix}\mathop{=}\begin{pmatrix}6 & 9\\
+3 & 6\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+ --\ensuremath{\ensuremath{>}}	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+
+\end{minipage}
+
+\noindent%
+
+\end{document}

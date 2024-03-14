@@ -1,0 +1,147 @@
+\documentclass[fleqn]{article}
+
+%% Created with wxMaxima 24.02.0
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{iftex}
+\ifPDFTeX
+  % PDFLaTeX or LaTeX 
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \DeclareUnicodeCharacter{00B5}{\ensuremath{\mu}}
+\else
+  %  XeLaTeX or LuaLaTeX
+  \usepackage{fontspec}
+\fi
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[leqno]{amsmath}
+\usepackage{ifthen}
+\newsavebox{\picturebox}
+\newlength{\pictureboxwidth}
+\newlength{\pictureboxheight}
+\newcommand{\includeimage}[1]{
+    \savebox{\picturebox}{\includegraphics{#1}}
+    \settoheight{\pictureboxheight}{\usebox{\picturebox}}
+    \settowidth{\pictureboxwidth}{\usebox{\picturebox}}
+    \ifthenelse{\lengthtest{\pictureboxwidth > .95\linewidth}}
+    {
+        \includegraphics[width=.95\linewidth,height=.80\textheight,keepaspectratio]{#1}
+    }
+    {
+        \ifthenelse{\lengthtest{\pictureboxheight>.80\textheight}}
+        {
+            \includegraphics[width=.95\linewidth,height=.80\textheight,keepaspectratio]{#1}
+            
+        }
+        {
+            \includegraphics{#1}
+        }
+    }
+}
+\newlength{\thislabelwidth}
+\DeclareMathOperator{\abs}{abs}
+
+\definecolor{labelcolor}{RGB}{100,0,0}
+
+\begin{document}
+Ao calcular o último produto, não esqueça que multiplicamos as linhas da primeira matrizpelas colunas do segundo, cada uma das quais possui apenas uma única entrada. Além disso, mesmo queos produtos da matriz A B e B A têm o mesmo tamanho, o que exige que A e B sejammatrizes quadradas, ainda podemos ter A B = B A. Por exemplo,
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i4)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+abc:\ matrix([1,2],[3,4])+matrix([0,1],[-1,2])+matrix([-2,5],[-4,11])/matrix([3,4],[5,6])+matrix([0,1],[-1,2])+matrix([1,2],[3,4]);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{abc} 
+\begin{pmatrix}\frac{4}{3} & \frac{29}{4}\\
+\frac{16}{5} & \frac{83}{6}\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+Por outro lado, a multiplicação de matrizes é associativa, então A (B C) = (A B) C sempre queA tem tamanho m × n, B tem tamanho n × p e C tem tamanho p × q; o resultado é uma matriz detamanho m × q. A prova de associatividade é um cálculo tedioso baseado na definição demultiplicação de matrizes que, por questões de brevidade, omitimos.† Consequentemente, a única diferença entreálgebra matricial e álgebra comum é que você precisa ter cuidado para não alterar a ordemde fatores multiplicativos sem a devida justificativa.Como a multiplicação de matrizes atua multiplicando linhas por colunas, pode-se calcular ocolunas em um produto de matriz A B multiplicando a matriz A e as colunas individuaisde B. Por exemplo, as duas colunas do produto da matriz
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i20)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+ldo:\ matrix([1,-1,2],[2,0,2])\^\ matrix([3,4],[0,2],[-1,1])=product(A1,A2,A3,A4);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{ldo} 
+{{\begin{pmatrix}1 & \mathop{-}1 & 2\\
+2 & 0 & 2\end{pmatrix}}^{\begin{pmatrix}3 & 4\\
+0 & 2\\
+\mathop{-}1 & 1\end{pmatrix}}}\mathop{=}{{\ensuremath{\mathrm{A1}}}^{\ensuremath{\mathrm{A4}}\mathop{-}\ensuremath{\mathrm{A3}}\mathop{+}1}}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+qualquer matriz m×n, então Im A = A = A In . Às vezes escreveremos a equação anteriorcomo apenas I A = A = A I , uma vez que cada produto da matriz é bem definido para exatamente um tamanho dematriz de identidade.
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i21)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+qlu:\ matrix([1,0,0],[0,3,0],[0,0,0]);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{qlu} 
+\begin{pmatrix}1 & 0 & 0\\
+0 & 3 & 0\\
+0 & 0 & 0\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+A matriz identidade é um exemplo particular de matriz diagonal. Em geral, um quadradoa matriz A é diagonal se todas as suas entradas fora da diagonal forem zero: aij = 0 para todos i = j. Vamosàs vezes escreva D = diag (c1, . . ., cn) para a matriz diagonal n × n com entradas diagonais
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i22)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+I4:\ diag(1,1,1,1)+matrix([1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]);\ 
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{I4} 
+\begin{pmatrix}\mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right) \mathop{+}1 & \mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right)  & \mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right)  & \mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right) \\
+\mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right)  & \mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right) \mathop{+}1 & \mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right)  & \mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right) \\
+\mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right)  & \mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right)  & \mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right) \mathop{+}1 & \mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right) \\
+\mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right)  & \mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right)  & \mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right)  & \mathop{diag}\left( 1\mathop{,}1\mathop{,}1\mathop{,}1\right) \mathop{+}1\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+1.2.6. (a) Escreva as matrizes identidade e zero 5 × 5.
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i23)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+A:\ diag(0,0,0,0,1)\ +\ matrix([1,0,2,-1,4],[0,1,-1,2,3],[2,3,-1,4,7],[3,2,1,-3,8],[4,2,1,3,9]);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{A} 
+\begin{pmatrix}\mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}1 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right)  & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}2 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{-}1 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}4\\
+\mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right)  & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}1 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{-}1 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}2 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}3\\
+\mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}2 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}3 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{-}1 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}4 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}7\\
+\mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}3 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}2 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}1 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{-}3 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}8\\
+\mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}4 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}2 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}1 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}3 & \mathop{diag}\left( 0\mathop{,}0\mathop{,}0\mathop{,}0\mathop{,}1\right) \mathop{+}9\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+\end{document}

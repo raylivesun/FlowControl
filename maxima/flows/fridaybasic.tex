@@ -1,0 +1,123 @@
+\documentclass[fleqn]{article}
+
+%% Created with wxMaxima 24.02.0
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{iftex}
+\ifPDFTeX
+  % PDFLaTeX or LaTeX 
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \DeclareUnicodeCharacter{00B5}{\ensuremath{\mu}}
+\else
+  %  XeLaTeX or LuaLaTeX
+  \usepackage{fontspec}
+\fi
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[leqno]{amsmath}
+\usepackage{ifthen}
+\newsavebox{\picturebox}
+\newlength{\pictureboxwidth}
+\newlength{\pictureboxheight}
+\newcommand{\includeimage}[1]{
+    \savebox{\picturebox}{\includegraphics{#1}}
+    \settoheight{\pictureboxheight}{\usebox{\picturebox}}
+    \settowidth{\pictureboxwidth}{\usebox{\picturebox}}
+    \ifthenelse{\lengthtest{\pictureboxwidth > .95\linewidth}}
+    {
+        \includegraphics[width=.95\linewidth,height=.80\textheight,keepaspectratio]{#1}
+    }
+    {
+        \ifthenelse{\lengthtest{\pictureboxheight>.80\textheight}}
+        {
+            \includegraphics[width=.95\linewidth,height=.80\textheight,keepaspectratio]{#1}
+            
+        }
+        {
+            \includegraphics{#1}
+        }
+    }
+}
+\newlength{\thislabelwidth}
+\DeclareMathOperator{\abs}{abs}
+
+\definecolor{labelcolor}{RGB}{100,0,0}
+
+\begin{document}
+Por exemplo, se adicionarmos - 2 vezes a primeira linha da matriz aumentada (1.16) à segundalinha, o resultado é o vetor linha
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i2)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+A:\ -2\ +\ matrix([1,2,1,2])\ +\ matrix([2,6,1,7])=matrix([0,2-1,3]);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{A} 
+\begin{pmatrix}1 & 6 & 0 & 7\end{pmatrix}\mathop{=}\begin{pmatrix}0 & 1 & 3\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+O resultado pode ser reconhecido como a segunda linha da matriz aumentada modificada
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i3)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+B:\ matrix([1,2,1+2],[0,2,-1+3],[1,1,4]);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{B} 
+\begin{pmatrix}1 & 2 & 3\\
+0 & 2 & 2\\
+1 & 1 & 4\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+que corresponde ao primeiro sistema equivalente (1.2). Quando a operação de linha elementar nº 1é executado, é fundamental que o resultado substitua a linha que está sendo adicionada - e não a linhasendo multiplicado pelo escalar. Observe que a eliminação de uma variável em uma equação -neste caso, a primeira variável na segunda equação - equivale a fazer a sua entrada namatriz de coeficientes igual a zero.Chamaremos a entrada (1, 1) da matriz de coeficientes de primeiro pivô. O precisoa definição de pivô ficará clara à medida que prosseguirmos; o único requisito fundamental é que umo pivô deve ser sempre diferente de zero. Eliminando a primeira variável x da segunda e terceiraequações equivale a tornar todas as entradas da matriz na coluna abaixo do pivô iguais azero. Já fizemos isso com a entrada (2, 1) em (1.17). Para fazer a entrada (3, 1)igual a zero, subtraímos (ou seja, adicionamos -1 vezes) a primeira linha da última linha. O
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i5)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+C:\ matrix([1,2,1\^\ 2],[0,2,-1\^\ 3],[0,-1,3\^\ 1]);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{C} 
+\begin{pmatrix}1 & 2 & 1\\
+0 & 2 & \mathop{-}1\\
+0 & \mathop{-}1 & 3\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+que corresponde ao sistema (1.3). O segundo pivô é a entrada (2, 2) desta matriz,que é 2 e é o coeficiente da segunda variável na segunda equação. Novamente, oo pivô deve ser diferente de zero. Usamos a operação elementar de adição de 21 do segundolinha para a terceira linha para tornar a entrada abaixo do segundo pivô igual a 0; o resultado é omatriz aumentada
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i6)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+N:\ matrix([1,2,1\^\ 2],[0,2,-1\^\ 3],[0,0,5/2\^\ 5/2]);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{N} 
+\begin{pmatrix}1 & 2 & 1\\
+0 & 2 & \mathop{-}1\\
+0 & 0 & \frac{5}{64}\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+\end{document}

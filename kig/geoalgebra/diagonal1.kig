@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE KigDocument>
+<KigDocument grid="1" CompatibilityVersion="0.7.0" Version="23.08.5" axes="1">
+ <CoordinateSystem>Euclidean</CoordinateSystem>
+ <Hierarchy>
+  <Data id="1" type="double">0</Data>
+  <Data id="2" type="double">-0.796325</Data>
+  <Data id="3" type="double">0.00188034</Data>
+  <Data id="4" type="double">-1.7133</Data>
+  <Object id="5" type="FixedPoint">
+   <Parent id="4"/>
+   <Parent id="3"/>
+  </Object>
+  <Data id="6" type="double">4.12829</Data>
+  <Object id="7" type="FixedPoint">
+   <Parent id="1"/>
+   <Parent id="6"/>
+  </Object>
+  <Object id="8" type="SegmentAB">
+   <Parent id="5"/>
+   <Parent id="7"/>
+  </Object>
+  <Data id="9" type="double">0.0260114</Data>
+  <Object id="10" type="FixedPoint">
+   <Parent id="2"/>
+   <Parent id="9"/>
+  </Object>
+  <Object id="11" type="SegmentAB">
+   <Parent id="5"/>
+   <Parent id="10"/>
+  </Object>
+  <Object id="12" type="SegmentAB">
+   <Parent id="10"/>
+   <Parent id="7"/>
+  </Object>
+ </Hierarchy>
+ <View>
+  <Draw font="Fira Sans,10,-1,5,25,0,0,0,0,0" width="-1" color="#0000ff" style="SolidLine" point-style="Round" shown="true" object="11" namecalcer="none"/>
+  <Draw font="Fira Sans,10,-1,5,25,0,0,0,0,0" width="-1" color="#0000ff" style="SolidLine" point-style="Round" shown="true" object="5" namecalcer="none"/>
+  <Draw font="Fira Sans,10,-1,5,25,0,0,0,0,0" width="-1" color="#0000ff" style="SolidLine" point-style="Round" shown="true" object="12" namecalcer="none"/>
+  <Draw font="Fira Sans,10,-1,5,25,0,0,0,0,0" width="-1" color="#0000ff" style="SolidLine" point-style="Round" shown="true" object="10" namecalcer="none"/>
+  <Draw font="Fira Sans,10,-1,5,25,0,0,0,0,0" width="-1" color="#0000ff" style="SolidLine" point-style="Round" shown="true" object="7" namecalcer="none"/>
+  <Draw font="Fira Sans,10,-1,5,25,0,0,0,0,0" width="-1" color="#0000ff" style="SolidLine" point-style="Round" shown="true" object="8" namecalcer="none"/>
+ </View>
+</KigDocument>
