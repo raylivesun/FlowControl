@@ -241,6 +241,12 @@ build CMakeFiles/FlowControl.dir/Features/how.cpp.o: CXX_COMPILER__FlowControl_u
   OBJECT_DIR = CMakeFiles/FlowControl.dir
   OBJECT_FILE_DIR = CMakeFiles/FlowControl.dir/Features
 
+build CMakeFiles/FlowControl.dir/Singles/lives.cpp.o: CXX_COMPILER__FlowControl_unscanned_Debug /home/admin/ProjectCLion/FlowControl/Singles/lives.cpp || cmake_object_order_depends_target_FlowControl
+  DEP_FILE = CMakeFiles/FlowControl.dir/Singles/lives.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/FlowControl.dir
+  OBJECT_FILE_DIR = CMakeFiles/FlowControl.dir/Singles
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target FlowControl
@@ -249,7 +255,7 @@ build CMakeFiles/FlowControl.dir/Features/how.cpp.o: CXX_COMPILER__FlowControl_u
 #############################################
 # Link the executable FlowControl
 
-build FlowControl: CXX_EXECUTABLE_LINKER__FlowControl_Debug CMakeFiles/FlowControl.dir/main.cpp.o CMakeFiles/FlowControl.dir/Singles/statments.cpp.o CMakeFiles/FlowControl.dir/Singles/condition.cpp.o CMakeFiles/FlowControl.dir/Singles/values.cpp.o CMakeFiles/FlowControl.dir/Singles/positive.cpp.o CMakeFiles/FlowControl.dir/Singles/nested.cpp.o CMakeFiles/FlowControl.dir/Singles/boolean.cpp.o CMakeFiles/FlowControl.dir/Singles/bellow.cpp.o CMakeFiles/FlowControl.dir/Singles/examples.cpp.o CMakeFiles/FlowControl.dir/Singles/objs.cpp.o CMakeFiles/FlowControl.dir/Singles/count.cpp.o CMakeFiles/FlowControl.dir/Singles/first.cpp.o CMakeFiles/FlowControl.dir/Singles/times.cpp.o CMakeFiles/FlowControl.dir/Singles/loops.cpp.o CMakeFiles/FlowControl.dir/Singles/stats.cpp.o CMakeFiles/FlowControl.dir/Singles/layout.cpp.o CMakeFiles/FlowControl.dir/Singles/tips.cpp.o CMakeFiles/FlowControl.dir/Singles/mathlab.cpp.o CMakeFiles/FlowControl.dir/Singles/tipsargs.cpp.o CMakeFiles/FlowControl.dir/Singles/tipsnever.cpp.o CMakeFiles/FlowControl.dir/Singles/tipspoints.cpp.o CMakeFiles/FlowControl.dir/Singles/zeros.cpp.o CMakeFiles/FlowControl.dir/Features/variables.cpp.o CMakeFiles/FlowControl.dir/Features/check.cpp.o CMakeFiles/FlowControl.dir/Features/vectors.cpp.o CMakeFiles/FlowControl.dir/Features/way.cpp.o CMakeFiles/FlowControl.dir/Features/basic.cpp.o CMakeFiles/FlowControl.dir/Features/settings.cpp.o CMakeFiles/FlowControl.dir/Features/files.cpp.o CMakeFiles/FlowControl.dir/Features/lists.cpp.o CMakeFiles/FlowControl.dir/Features/goods.cpp.o CMakeFiles/FlowControl.dir/Features/how.cpp.o
+build FlowControl: CXX_EXECUTABLE_LINKER__FlowControl_Debug CMakeFiles/FlowControl.dir/main.cpp.o CMakeFiles/FlowControl.dir/Singles/statments.cpp.o CMakeFiles/FlowControl.dir/Singles/condition.cpp.o CMakeFiles/FlowControl.dir/Singles/values.cpp.o CMakeFiles/FlowControl.dir/Singles/positive.cpp.o CMakeFiles/FlowControl.dir/Singles/nested.cpp.o CMakeFiles/FlowControl.dir/Singles/boolean.cpp.o CMakeFiles/FlowControl.dir/Singles/bellow.cpp.o CMakeFiles/FlowControl.dir/Singles/examples.cpp.o CMakeFiles/FlowControl.dir/Singles/objs.cpp.o CMakeFiles/FlowControl.dir/Singles/count.cpp.o CMakeFiles/FlowControl.dir/Singles/first.cpp.o CMakeFiles/FlowControl.dir/Singles/times.cpp.o CMakeFiles/FlowControl.dir/Singles/loops.cpp.o CMakeFiles/FlowControl.dir/Singles/stats.cpp.o CMakeFiles/FlowControl.dir/Singles/layout.cpp.o CMakeFiles/FlowControl.dir/Singles/tips.cpp.o CMakeFiles/FlowControl.dir/Singles/mathlab.cpp.o CMakeFiles/FlowControl.dir/Singles/tipsargs.cpp.o CMakeFiles/FlowControl.dir/Singles/tipsnever.cpp.o CMakeFiles/FlowControl.dir/Singles/tipspoints.cpp.o CMakeFiles/FlowControl.dir/Singles/zeros.cpp.o CMakeFiles/FlowControl.dir/Features/variables.cpp.o CMakeFiles/FlowControl.dir/Features/check.cpp.o CMakeFiles/FlowControl.dir/Features/vectors.cpp.o CMakeFiles/FlowControl.dir/Features/way.cpp.o CMakeFiles/FlowControl.dir/Features/basic.cpp.o CMakeFiles/FlowControl.dir/Features/settings.cpp.o CMakeFiles/FlowControl.dir/Features/files.cpp.o CMakeFiles/FlowControl.dir/Features/lists.cpp.o CMakeFiles/FlowControl.dir/Features/goods.cpp.o CMakeFiles/FlowControl.dir/Features/how.cpp.o CMakeFiles/FlowControl.dir/Singles/lives.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/FlowControl.dir
   POST_BUILD = :

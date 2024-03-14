@@ -66,4 +66,6 @@ add_executable(FlowControl main.cpp
         Features/goods.h
         Features/how.cpp
         Features/how.h
+        Singles/lives.cpp
+        Singles/lives.h
 )
